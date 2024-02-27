@@ -9,4 +9,3 @@ data
 lazyvim.json
 lazy-lock.json
 .zed/
-lua/plugins/rlang.lua
