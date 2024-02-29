@@ -33,7 +33,7 @@ return {
         function()
           require("neogen").generate()
         end,
-        desc = "Generate",
+        desc = "Generate Neogen",
       },
     },
   },
