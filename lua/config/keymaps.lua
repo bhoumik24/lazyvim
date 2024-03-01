@@ -7,6 +7,7 @@ local Util = require("lazyvim.util")
 -- Terminal rounded border
 vim.keymap.set("n", "<C-/>", function()
   Util.terminal(nil, {
+    cwd = Util.root(),
     border = "rounded",
     size = {
       width = 50,
