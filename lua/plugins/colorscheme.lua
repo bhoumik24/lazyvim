@@ -1,11 +1,18 @@
 return {
   -- add gruvbox
-  { "ellisonleao/gruvbox.nvim", opts = {
-    transparent_mode = true,
-    italic = {
-      strings = false,
+  {
+    "ellisonleao/gruvbox.nvim",
+    opts = {
+      transparent_mode = true,
+      italic = {
+        strings = false,
+      },
+      overrides = {
+        --Keyword = { italic = true, fg = "#fb4934" },
+        --GruvboxRed = { italic = true },
+      },
     },
-  } },
+  },
 
   -- Configure LazyVim to load gruvbox
   {
