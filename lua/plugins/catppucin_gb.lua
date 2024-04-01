@@ -168,7 +168,7 @@ return {
             Conditional = { fg = colors.red },
             Repeat = { fg = colors.red },
             Keyword = { fg = colors.red },
-            Typedef = { fg = colors.red, style = { "italic" } },
+            Typedef = { fg = colors.red },
             Exception = { fg = colors.red },
             Statement = { fg = colors.red },
 
@@ -211,7 +211,7 @@ return {
             TSFunction = { fg = colors.green },
             TSFunctionCall = { fg = colors.green },
             TSInclude = { fg = colors.red },
-            TSKeyword = { fg = colors.red },
+            TSKeyword = { fg = colors.red, style = { "italic" } },
             TSKeywordFunction = { fg = colors.red, style = { "italic" } },
             TSKeywordOperator = { fg = colors.peach },
             TSKeywordReturn = { fg = colors.red, style = { "italic" } },
