@@ -168,7 +168,7 @@ return {
             Conditional = { fg = colors.red },
             Repeat = { fg = colors.red },
             Keyword = { fg = colors.red },
-            Typedef = { fg = colors.red },
+            Typedef = { fg = colors.red, style = { "italic" } },
             Exception = { fg = colors.red },
             Statement = { fg = colors.red },
 
