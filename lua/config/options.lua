@@ -12,3 +12,5 @@ vim.filetype.add({
     j2 = "jinja",
   },
 })
+
+vim.filetype.add({ extension = { templ = "templ" } })

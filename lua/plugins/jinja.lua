@@ -4,8 +4,8 @@ return {
     opts = {
       servers = {
         jinja_lsp = {
-          templates = "./templates",
-          backend = { "./src" },
+          templates = "./src/**/templates",
+          backend = { "./src/**/" },
           lang = "python",
         },
       },

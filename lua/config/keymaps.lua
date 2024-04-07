@@ -8,7 +8,7 @@ local Util = require("lazyvim.util")
 vim.keymap.set("n", "<C-/>", function()
   Util.terminal(nil, {
     cwd = Util.root(),
-    border = "rounded",
+    border = "solid",
     size = {
       width = 50,
       height = 30,
@@ -16,7 +16,7 @@ vim.keymap.set("n", "<C-/>", function()
     style = "minimal",
     margin = {
       top = -25,
-      left = 35,
+      left = 65,
       right = -100,
       bottom = 35,
     },
