@@ -14,3 +14,4 @@ vim.filetype.add({
 })
 
 vim.filetype.add({ extension = { templ = "templ" } })
+vim.g.codeium_enabled = false
