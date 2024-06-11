@@ -8,8 +8,8 @@ return {
         strings = false,
       },
       overrides = {
-        --Keyword = { italic = true, fg = "#fb4934" },
-        --GruvboxRed = { italic = true },
+        Keyword = { italic = true, fg = "#fb4934" },
+        GruvboxRed = { italic = true },
       },
     },
   },
