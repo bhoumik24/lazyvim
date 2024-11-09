@@ -402,17 +402,6 @@ return {
           }
         end,
       },
-      function()
-        local custom_gruvbox = require("lualine.themes.catppuccin")
-        local C = require("catppuccin.palettes").get_palette()
-        custom_gruvbox.normal.a.bg = C.overlay2
-        custom_gruvbox.normal.b.fg = C.overlay2
-        require("lualine").setup({
-          options = {
-            theme = custom_gruvbox,
-          },
-        })
-      end,
     },
     specs = {
       {
@@ -422,6 +411,16 @@ return {
           if (vim.g.colors_name or ""):find("catppuccin") then
             opts.highlights = require("catppuccin.groups.integrations.bufferline").get()
           end
+        end,
+      },
+      {
+        "nvim-lualine/lualine.nvim",
+        opts = function(_, opts)
+          local custom_gruvbox = require("lualine.themes.catppuccin")
+          local C = require("catppuccin.palettes").get_palette()
+          custom_gruvbox.normal.a.bg = C.overlay2
+          custom_gruvbox.normal.b.fg = C.overlay2
+          opts.options.theme = custom_gruvbox
         end,
       },
     },
