@@ -415,6 +415,7 @@ return {
       },
       {
         "nvim-lualine/lualine.nvim",
+        optional = true,
         opts = function(_, opts)
           local custom_gruvbox = require("lualine.themes.catppuccin")
           local C = require("catppuccin.palettes").get_palette()
@@ -423,12 +424,6 @@ return {
           opts.options.theme = custom_gruvbox
         end,
       },
-    },
-  },
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "catppuccin",
     },
   },
 }
