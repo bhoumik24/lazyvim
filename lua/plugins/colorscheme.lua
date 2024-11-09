@@ -2,6 +2,7 @@ return {
   -- add gruvbox
   {
     "ellisonleao/gruvbox.nvim",
+    enable = false,
     opts = {
       transparent_mode = true,
       italic = {
@@ -16,6 +17,7 @@ return {
   {
     "rebelot/kanagawa.nvim",
     lazy = false,
+    enable = false,
     opts = {
       compile = true,
       dimInactive = true,
@@ -46,6 +48,7 @@ return {
   {
     "folke/tokyonight.nvim",
     lazy = false,
+    enable = false,
     priority = 1000,
     opts = {
       transparent = true,
@@ -84,11 +87,20 @@ return {
       end,
     },
   },
-  -- Configure LazyVim to load gruvbox
   {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "catppuccin",
-    },
+    "sainnhe/gruvbox-material",
+    lazy = false,
+    enable = true,
+    priority = 1000,
+    config = function()
+      -- Optionally configure and load the colorscheme
+      -- directly inside the plugin declaration.
+      vim.g.gruvbox_material_enable_italic = true
+      vim.g.gruvbox_material_transparent_background = true
+      vim.g.gruvbox_material_background = "hard"
+      vim.g.gruvbox_material_foreground = "material"
+      -- vim.cmd.colorscheme("gruvbox-material")
+    end,
   },
+  -- Configure LazyVim to load gruvbox
 }

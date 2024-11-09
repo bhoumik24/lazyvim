@@ -1,6 +1,7 @@
 return {
   {
     "catppuccin/nvim",
+    lazy = true,
     name = "catppuccin",
     opts = {
       color_overrides = {
@@ -32,7 +33,7 @@ return {
           mantle = "#f0ebce",
           crust = "#e8e3c8",
         },
-        mocha = {
+        macchiato = {
           rosewater = "#ea6962",
           flamingo = "#ea6962",
           red = "#ea6962",
@@ -60,6 +61,34 @@ return {
           mantle = "#191b1c",
           crust = "#141617",
         },
+        mocha = {
+          rosewater = "#f2594b",
+          flamingo = "#f2594b",
+          red = "#db4740",
+          maroon = "#db4740",
+          pink = "#d3869b",
+          mauve = "#d3869b",
+          peach = "#f28534",
+          yellow = "#e9b143",
+          green = "#b0b846",
+          teal = "#8bba7f",
+          sky = "#8bba7f",
+          sapphire = "#8bba7f",
+          blue = "#80aa9e",
+          lavender = "#80aa9e",
+          text = "#ebdbb2",
+          subtext1 = "#d5c4a1",
+          subtext0 = "#bdae93",
+          overlay2 = "#a89984",
+          overlay1 = "#928374",
+          overlay0 = "#595959",
+          surface2 = "#4d4d4d",
+          surface1 = "#404040",
+          surface0 = "#292929",
+          base = "#1d2021",
+          mantle = "#191b1c",
+          crust = "#141617",
+        },
       },
       styles = {
         loops = { "italic" },
@@ -67,6 +96,7 @@ return {
         functions = { "bold" },
         types = { "bold" },
       },
+      flavour = "mocha",
       transparent_background = true,
       show_end_of_buffer = false,
       default_integrations = true,
@@ -372,13 +402,34 @@ return {
           }
         end,
       },
+      function()
+        local custom_gruvbox = require("lualine.themes.catppuccin")
+        local C = require("catppuccin.palettes").get_palette()
+        custom_gruvbox.normal.a.bg = C.overlay2
+        custom_gruvbox.normal.b.fg = C.overlay2
+        require("lualine").setup({
+          options = {
+            theme = custom_gruvbox,
+          },
+        })
+      end,
+    },
+    specs = {
+      {
+        "akinsho/bufferline.nvim",
+        optional = true,
+        opts = function(_, opts)
+          if (vim.g.colors_name or ""):find("catppuccin") then
+            opts.highlights = require("catppuccin.groups.integrations.bufferline").get()
+          end
+        end,
+      },
     },
   },
   {
-    "nvim-lualine/lualine.nvim",
-    event = "VeryLazy",
-    opts = function(_, opts)
-      opts.options.theme = "gruvbox-material"
-    end,
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "catppuccin",
+    },
   },
 }
