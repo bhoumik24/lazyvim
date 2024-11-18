@@ -8,6 +8,8 @@ vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.opt.foldtext = "v:lua.vim.treesitter.foldtext()"
 vim.opt.laststatus = 3
 
+vim.lsp.set_log_level("off")
+
 vim.filetype.add({
   extension = {
     jinja = "jinja",
