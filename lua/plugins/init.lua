@@ -1,6 +1,38 @@
+local ui = vim.api.nvim_list_uis()[1]
+local width = math.floor(ui.width * 0.5) -- 40% of total width
+local height = math.floor(ui.height * 0.45) -- 30% of total height
+local row = 0 -- Top position
+local col = ui.width - width -- Align to the right
+
 return {
   {
     "ThePrimeagen/vim-be-good",
+  },
+  {
+    "folke/snacks.nvim",
+    opts = {
+      terminal = {
+        win = {
+          position = "float",
+          -- style = "minimal",
+          relative = "editor",
+          width = width,
+          height = height,
+          row = row,
+          col = col,
+        },
+      },
+      lazygit = {
+        win = {
+          position = "float",
+          relative = "editor",
+          width = 0.9,
+          height = 0.9,
+          row = 2.5,
+          col = 7,
+        },
+      },
+    },
   },
   {
     "nvim-pack/nvim-spectre",
