@@ -7,6 +7,7 @@ local col = ui.width - width -- Align to the right
 return {
   {
     "ThePrimeagen/vim-be-good",
+    lazy = true,
   },
   {
     "folke/snacks.nvim",

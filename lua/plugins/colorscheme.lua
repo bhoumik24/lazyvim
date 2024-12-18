@@ -2,6 +2,7 @@ return {
   -- add gruvbox
   {
     "ellisonleao/gruvbox.nvim",
+    lazy = true,
     enable = false,
     opts = {
       transparent_mode = true,
@@ -16,7 +17,7 @@ return {
   },
   {
     "rebelot/kanagawa.nvim",
-    lazy = false,
+    lazy = true,
     enable = false,
     opts = {
       compile = true,
@@ -47,7 +48,7 @@ return {
   },
   {
     "folke/tokyonight.nvim",
-    lazy = false,
+    lazy = true,
     enable = false,
     priority = 1000,
     opts = {
@@ -89,8 +90,8 @@ return {
   },
   {
     "sainnhe/gruvbox-material",
-    lazy = false,
-    enable = true,
+    lazy = true,
+    enable = false,
     priority = 1000,
     config = function()
       -- Optionally configure and load the colorscheme

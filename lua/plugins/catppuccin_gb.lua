@@ -129,6 +129,8 @@ return {
         neotree = true,
         noice = true,
         notify = true,
+        rainbow_delimiters = true,
+        snacks = true,
         semantic_tokens = true,
         telescope = true,
         treesitter = true,
@@ -404,6 +406,7 @@ return {
       },
     },
     specs = {
+      { "HiPhish/rainbow-delimiters.nvim" },
       {
         "akinsho/bufferline.nvim",
         optional = true,
