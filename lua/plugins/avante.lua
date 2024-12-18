@@ -1,3 +1,8 @@
+local wk = require("which-key")
+wk.add({
+  { "<leader>a", group = "avante" },
+})
+
 return {
   {
     "yetone/avante.nvim",
