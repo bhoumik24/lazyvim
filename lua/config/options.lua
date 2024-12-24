@@ -21,3 +21,5 @@ vim.filetype.add({
 vim.filetype.add({ extension = { templ = "templ" } })
 vim.g.codeium_enabled = false
 vim.filetype.add({ extension = { template = "yaml" } })
+
+vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
