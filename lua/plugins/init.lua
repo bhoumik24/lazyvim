@@ -1,6 +1,6 @@
 local ui = vim.api.nvim_list_uis()[1]
 local width = math.floor(ui.width * 0.5) -- 40% of total width
-local height = math.floor(ui.height * 0.45) -- 30% of total height
+local height = math.floor(ui.height * 0.6) -- 30% of total height
 local row = 0 -- Top position
 local col = ui.width - width -- Align to the right
 

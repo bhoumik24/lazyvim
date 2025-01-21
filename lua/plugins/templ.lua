@@ -19,4 +19,10 @@ return {
       })
     end,
   },
+  {
+    "catgoose/templ-goto-definition",
+    lazy = false,
+    ft = { "go" },
+    config = true,
+  },
 }
