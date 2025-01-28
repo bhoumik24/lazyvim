@@ -28,6 +28,7 @@ return {
       opts = { ensure_installed = { "codelldb" } },
     },
     opts = function()
+      require("overseer").enable_dap()
       local dap = require("dap")
       if not dap.adapters["codelldb"] then
         require("dap").adapters["codelldb"] = {
@@ -60,6 +61,16 @@ return {
             name = "Attach to process",
             pid = require("dap.utils").pick_process,
             cwd = "${workspaceFolder}",
+          },
+          {
+            type = "codelldb",
+            request = "launch",
+            name = "C++",
+            -- stdio = { "input.txt", nil },
+            preLaunchTask = "Compile for debug",
+            postDebugTask = "Clean",
+            expressions = "native",
+            program = "${workspaceFolder}/${fileBasenameNoExtension}",
           },
         }
       end

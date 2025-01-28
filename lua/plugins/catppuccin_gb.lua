@@ -97,7 +97,7 @@ return {
         types = { "bold" },
       },
       flavour = "mocha",
-      transparent_background = true,
+      transparent_background = false,
       show_end_of_buffer = false,
       default_integrations = true,
       integrations = {
@@ -132,6 +132,7 @@ return {
         neotree = true,
         noice = true,
         notify = true,
+        overseer = true,
         rainbow_delimiters = true,
         snacks = true,
         semantic_tokens = true,
@@ -428,6 +429,7 @@ return {
           custom_gruvbox.normal.a.bg = C.overlay2
           custom_gruvbox.normal.b.fg = C.overlay2
           opts.options.theme = custom_gruvbox
+          table.insert(opts.sections.lualine_x, { "overseer" })
         end,
       },
     },

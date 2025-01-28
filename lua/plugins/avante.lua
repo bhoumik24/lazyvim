@@ -12,6 +12,18 @@ return {
     opts = {
       -- provider = "copilot",
       -- add any opts here
+      provider = "claude",
+      claude = {
+        api_key_name = "cmd:pass show ai/anthropic",
+      },
+      -- vendors = {
+      --   deepseek = {
+      --     __inherited_from = "openai",
+      --     api_key_name = "cmd:pass show ai/deepseek",
+      --     endpoint = "https://api.deepseek.com",
+      --     model = "deepseek-coder",
+      --   },
+      -- },
     },
     -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
     build = "make",
