@@ -2,8 +2,8 @@
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
 
-vim.opt.shiftwidth = 4
-vim.opt.tabstop = 4
+-- vim.opt.shiftwidth = 4
+-- vim.opt.tabstop = 4
 vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.opt.foldtext = "v:lua.vim.treesitter.foldtext()"
 vim.opt.laststatus = 3
@@ -59,12 +59,12 @@ vim.filetype.add({ extension = { templ = "templ" } })
 vim.g.codeium_enabled = false
 vim.filetype.add({ extension = { template = "yaml" } })
 
-vim.keymap.set(
-  "n",
-  "<leader>e",
-  [[<CMD>lua require("oil").toggle_float()<CR>]],
-  { noremap = true, silent = true, desc = "Toggle Oil" }
-)
+-- vim.keymap.set(
+--   "n",
+--   "<leader>e",
+--   [[<CMD>lua require("oil").toggle_float()<CR>]],
+--   { noremap = true, silent = true, desc = "Toggle Oil" }
+-- )
 
 -- ############################################################################
 --                             Neovide section
@@ -87,12 +87,18 @@ if vim.g.neovide then
   -- produce particles behind the cursor, to disable, set it to ""
   vim.g.neovide_cursor_vfx_mode = "sonicboom"
 
-  -- Transparency and blurring
-  vim.g.neovide_transparency = 0.85
+  -- Display
+  vim.g.neovide_transparency = 0.80
   vim.g.neovide_window_blurred = true
+  -- vim.g.neovide_refresh_rate = 120
+  vim.g.neovide_refresh_rate_idle = 5
+  vim.g.neovide_hide_mouse_when_typing = true
+  vim.g.snacks_animate = false
+  vim.g.snacks_scroll = false
 
   -- This is how fast the cursor animation "moves", default 0.06
   vim.g.neovide_cursor_animation_length = 0.04
+  vim.g.neovide_scroll_animation_length = 0.2
   vim.g.neovide_input_macos_option_key_is_meta = "only_left"
 
   -- Dynamically change scale at runtime

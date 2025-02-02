@@ -12,15 +12,22 @@ return {
   {
     "folke/snacks.nvim",
     opts = {
+      animate = {
+        fps = 120,
+      },
+      explorer = {
+        replace_netrw = true,
+      },
       terminal = {
         win = {
           position = "float",
-          -- style = "minimal",
+          style = "minimal",
           relative = "editor",
           width = width,
           height = height,
           row = row,
           col = col,
+          resize = true,
         },
       },
       lazygit = {
@@ -29,28 +36,9 @@ return {
           relative = "editor",
           width = 0.9,
           height = 0.9,
-          row = 2.5,
-          col = 7,
+          row = (ui.height * 0.05),
+          col = (ui.width * 0.05),
         },
-      },
-    },
-  },
-  {
-    "nvim-pack/nvim-spectre",
-    keys = {
-      {
-        "<leader>sp",
-        function()
-          require("spectre").open_file_search({ select_word = true })
-        end,
-        desc = "Search/Replace on current file",
-      },
-      {
-        "<leader>sw",
-        function()
-          require("spectre").open_visual({ select_word = true })
-        end,
-        desc = "Search/Replace current word",
       },
     },
   },
