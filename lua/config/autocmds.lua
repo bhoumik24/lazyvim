@@ -15,16 +15,16 @@ vim.api.nvim_create_autocmd("VimLeave", {
   end,
 })
 
-vim.api.nvim_create_autocmd("VimEnter", {
-  desc = "Disable transparent background in Catppuccin when using Neovide",
-  callback = function()
-    if vim.g.neovide then
-      -- Update Catppuccin configuration
-      require("catppuccin").setup({
-        transparent_background = false,
-      })
-      -- Re-apply the colorscheme to activate changes
-      vim.cmd.colorscheme("catppuccin")
-    end
-  end,
-})
+-- vim.api.nvim_create_autocmd("VimEnter", {
+--   desc = "Disable transparent background in Catppuccin when using Neovide",
+--   callback = function()
+--     if vim.g.neovide then
+--       -- Update Catppuccin configuration
+--       require("catppuccin").setup({
+--         transparent_background = false,
+--       })
+--       -- Re-apply the colorscheme to activate changes
+--       vim.cmd.colorscheme("catppuccin")
+--     end
+--   end,
+-- })
