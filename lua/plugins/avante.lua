@@ -13,7 +13,7 @@ return {
       -- Default configuration
       opts.hints = { enabled = false }
 
-      opts.provider = "deepseek"
+      opts.provider = "gemini"
       opts.openai = {
         model = "o3-mini",
         api_key_name = "cmd:pass show ai/openai",
@@ -22,6 +22,10 @@ return {
       }
       opts.claude = {
         api_key_name = "cmd:pass show ai/anthropic",
+      }
+      opts.gemini = {
+        api_key_name = "cmd:pass show ai/gemini",
+        model = "gemini-exp-1206",
       }
       opts.vendors = {
         deepseek = {
@@ -33,11 +37,17 @@ return {
           timeout = 30000,
           max_tokens = 4096,
         },
+        openrouter = {
+          __inherited_from = "openai",
+          endpoint = "https://openrouter.ai/api/v1",
+          api_key_name = "cmd:pass show ai/openrouter",
+          model = "google/gemini-2.0-flash-exp:free",
+        },
         ollama = {
           __inherited_from = "openai",
           api_key_name = "",
           endpoint = "http://bhoumik-pc.local.bhoumik.net:11434/v1",
-          model = "DeepSeekR1-Local:latest",
+          model = "qwen2.5-coder:32b",
         },
       }
 

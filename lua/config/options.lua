@@ -5,7 +5,8 @@
 -- vim.opt.shiftwidth = 4
 -- vim.opt.tabstop = 4
 vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-vim.opt.foldtext = "v:lua.vim.treesitter.foldtext()"
+vim.opt.foldmethod = "expr"
+-- vim.opt.foldtext = "v:lua.vim.treesitter.foldtext()"
 vim.opt.laststatus = 3
 
 -- nu shell settings

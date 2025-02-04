@@ -1,9 +1,3 @@
-local ui = vim.api.nvim_list_uis()[1]
-local width = math.floor(ui.width * 0.5) -- 40% of total width
-local height = math.floor(ui.height * 0.6) -- 30% of total height
-local row = 0 -- Top position
-local col = ui.width - width -- Align to the right
-
 return {
   {
     "ThePrimeagen/vim-be-good",
@@ -19,16 +13,30 @@ return {
         replace_netrw = true,
       },
       terminal = {
-        win = {
-          position = "float",
-          style = "minimal",
-          relative = "editor",
-          width = width,
-          height = height,
-          row = row,
-          col = col,
-          resize = true,
-        },
+        win = function()
+          if #vim.api.nvim_list_uis() == 0 then
+            return {
+              position = "float",
+              style = "minimal",
+            }
+          else
+            local ui = vim.api.nvim_list_uis()[1]
+            local width = math.floor(ui.width * 0.5) -- 40% of total width
+            local height = math.floor(ui.height * 0.6) -- 30% of total height
+            local row = 0 -- Top position
+            local col = ui.width - width -- Align to the right
+            return {
+              position = "float",
+              style = "minimal",
+              relative = "editor",
+              width = width,
+              height = height,
+              row = row,
+              col = col,
+              resize = true,
+            }
+          end
+        end,
       },
       lazygit = {
         win = {
