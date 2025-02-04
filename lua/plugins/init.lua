@@ -13,39 +13,25 @@ return {
         replace_netrw = true,
       },
       terminal = {
-        win = function()
-          if #vim.api.nvim_list_uis() == 0 then
-            return {
-              position = "float",
-              style = "minimal",
-            }
-          else
-            local ui = vim.api.nvim_list_uis()[1]
-            local width = math.floor(ui.width * 0.5) -- 40% of total width
-            local height = math.floor(ui.height * 0.6) -- 30% of total height
-            local row = 0 -- Top position
-            local col = ui.width - width -- Align to the right
-            return {
-              position = "float",
-              style = "minimal",
-              relative = "editor",
-              width = width,
-              height = height,
-              row = row,
-              col = col,
-              resize = true,
-            }
-          end
-        end,
+        win = {
+          position = "float",
+          style = "minimal",
+          relative = "editor",
+          width = 0.5,
+          height = 0.6,
+          row = 0,
+          col = 0.5,
+          resize = true,
+        },
       },
       lazygit = {
         win = {
           position = "float",
           relative = "editor",
-          -- width = 0.9,
-          -- height = 0.9,
-          -- row = (ui.height * 0.05),
-          -- col = (ui.width * 0.05),
+          width = 0.9,
+          height = 0.9,
+          row = 0.05,
+          col = 0.05,
         },
       },
     },
