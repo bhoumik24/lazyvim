@@ -12,7 +12,7 @@ return {
             "C++ build",
           },
         },
-        { "on_output_quickfix", open = true },
+        { "open_output", direction = "float", focus = true, on_start = "always" },
         "default",
       },
     }

@@ -22,7 +22,8 @@ return {
         file,
       },
       components = {
-        { "on_output_quickfix", open_on_exit = "failure" },
+        { "on_output_parse", problem_matcher = "$gcc" },
+        { "on_result_diagnostics_trouble", close = true },
         "default",
       },
     }

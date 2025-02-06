@@ -13,9 +13,10 @@ return {
       -- Default configuration
       opts.hints = { enabled = false }
 
+      opts.auto_suggestions_provider = "gemini"
       opts.provider = "gemini"
       opts.openai = {
-        model = "o3-mini",
+        model = "o1-mini",
         api_key_name = "cmd:pass show ai/openai",
         temperature = 0,
         max_tokens = 4096,
@@ -24,8 +25,9 @@ return {
         api_key_name = "cmd:pass show ai/anthropic",
       }
       opts.gemini = {
-        api_key_name = "cmd:pass show ai/gemini",
-        model = "gemini-exp-1206",
+        api_key_name = "cmd:pass show ai/google",
+        model = "gemini-2.0-pro-exp-02-05",
+        temperature = 0,
       }
       opts.vendors = {
         deepseek = {
@@ -41,13 +43,15 @@ return {
           __inherited_from = "openai",
           endpoint = "https://openrouter.ai/api/v1",
           api_key_name = "cmd:pass show ai/openrouter",
-          model = "google/gemini-2.0-flash-exp:free",
+          model = "deepseek/deepseek-r1-distill-qwen-32b",
         },
         ollama = {
           __inherited_from = "openai",
           api_key_name = "",
           endpoint = "http://bhoumik-pc.local.bhoumik.net:11434/v1",
-          model = "qwen2.5-coder:32b",
+          -- model = "qwen2.5-coder:32b",
+          -- model = "deepseek-r1:32b",
+          model = "DeepSeekR1-Local:latest",
         },
       }
 
@@ -105,7 +109,15 @@ return {
     -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
-      "stevearc/dressing.nvim",
+      -- {
+      --   "stevearc/dressing.nvim",
+      --   opts = {
+      --     select = {
+      --       enabled = false,
+      --       backend = { "snacks" },
+      --     },
+      --   },
+      -- },
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
       --- The below dependencies are optional,

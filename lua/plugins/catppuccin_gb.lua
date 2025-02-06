@@ -97,8 +97,8 @@ return {
         types = { "bold" },
       },
       flavour = "mocha",
-      -- transparent_background = vim.g.neovide ~= true,
-      transparent_background = false,
+      transparent_background = vim.g.neovide ~= true,
+      -- transparent_background = false,
       show_end_of_buffer = false,
       default_integrations = true,
       integrations = {
