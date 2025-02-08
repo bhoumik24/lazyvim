@@ -12,7 +12,7 @@ return {
             "C++ build",
           },
         },
-        { "open_output", direction = "float", focus = true, on_start = "always" },
+        { "open_output", direction = "dock", focus = true, on_start = "always" },
         "default",
       },
     }

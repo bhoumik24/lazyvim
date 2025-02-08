@@ -26,7 +26,7 @@ return {
       }
       opts.gemini = {
         api_key_name = "cmd:pass show ai/google",
-        model = "gemini-2.0-pro-exp-02-05",
+        model = "gemini-2.0-flash",
         temperature = 0,
       }
       opts.vendors = {
@@ -37,7 +37,6 @@ return {
           model = "deepseek-coder",
           temperature = 0,
           timeout = 30000,
-          max_tokens = 4096,
         },
         openrouter = {
           __inherited_from = "openai",
@@ -52,7 +51,13 @@ return {
           -- model = "qwen2.5-coder:32b",
           -- model = "deepseek-r1:32b",
           model = "DeepSeekR1-Local:latest",
+          disable_tools = true,
         },
+      }
+
+      opts.web_search_engine = {
+        provider = "tavily",
+        api_key_name = "cmd:pass show ai/web-search/tavily",
       }
 
       -- File selector configuration

@@ -53,14 +53,6 @@ return {
     },
   },
   {
-    "nvim-neo-tree/neo-tree.nvim",
-    opts = {
-      window = {
-        position = "right",
-      },
-    },
-  },
-  {
     "mfussenegger/nvim-dap",
     optional = true,
     dependencies = {
