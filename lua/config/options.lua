@@ -50,7 +50,7 @@ vim.opt.sh = "zsh"
 --   -- end nushell settings
 -- end
 
-vim.lsp.set_log_level("off")
+vim.lsp.set_log_level("error")
 
 vim.filetype.add({
   extension = {

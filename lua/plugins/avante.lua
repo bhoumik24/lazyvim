@@ -56,8 +56,8 @@ return {
       }
 
       opts.web_search_engine = {
-        provider = "tavily",
-        api_key_name = "cmd:pass show ai/web-search/tavily",
+        provider = "google",
+        -- api_key_name = "cmd:pass show ai/web-search/tavily",
       }
 
       -- File selector configuration
