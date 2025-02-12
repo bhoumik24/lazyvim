@@ -50,7 +50,7 @@ vim.opt.sh = "zsh"
 --   -- end nushell settings
 -- end
 
-vim.lsp.set_log_level("error")
+vim.lsp.set_log_level("off")
 
 vim.filetype.add({
   extension = {
@@ -93,7 +93,7 @@ if vim.g.neovide then
   vim.g.neovide_cursor_vfx_mode = "sonicboom"
 
   -- Display
-  vim.g.neovide_transparency = 0.80
+  vim.g.neovide_transparency = 0.90
   vim.g.neovide_window_blurred = true
   -- vim.g.neovide_refresh_rate = 120
   vim.g.neovide_refresh_rate_idle = 5
