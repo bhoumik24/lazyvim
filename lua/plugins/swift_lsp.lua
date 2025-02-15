@@ -12,6 +12,7 @@ return {
     opts = {
       servers = {
         sourcekit = {
+          filetypes = { "swift" },
           capabilities = {
             workspace = {
               didChangeWatchedFiles = {
