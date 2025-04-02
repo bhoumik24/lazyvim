@@ -6,14 +6,14 @@ return {
     local outFile = vim.fn.expand("%:p:r")
     return {
       cmd = {
-        "c++",
+        "clang++",
         "-I/opt/homebrew/include",
         "-std=c++20",
         "-Wall",
         "-Weffc++",
         "-Wextra",
         "-Wconversion",
-        "-Wsign-conversion",
+        "-Wno-sign-conversion",
         "-Werror",
       },
       args = {

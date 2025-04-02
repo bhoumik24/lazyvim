@@ -1,28 +1,38 @@
+vim.filetype.add({ extension = { templ = "templ" } })
 return {
-  -- {
-  --     "neovim/nvim-lspconfig",
-  --     opts = {
-  --       servers = {
-  --         -- pyright will be automatically installed with mason and loaded with lspconfig
-  --         pyright = {},
-  --       },
-  --     },
-  --   },
   {
     "nvim-treesitter/nvim-treesitter",
     dependencies = {
       "vrischmann/tree-sitter-templ",
     },
-    opts = function(_, opts)
-      vim.list_extend(opts.ensure_installed, {
-        "templ",
-      })
-    end,
+    opts = { ensure_installed = { "templ" } },
+  },
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      servers = {
+        templ = {},
+        html = {
+          filetypes = { "html", "templ" },
+        },
+        tailwindcss = {
+          filetypes = { "templ", "astro", "javascript", "typescript", "react" },
+          settings = {
+            tailwindCSS = {
+              includeLanguages = {
+                templ = "html",
+              },
+            },
+          },
+        },
+      },
+    },
   },
   {
     "catgoose/templ-goto-definition",
     lazy = false,
     ft = { "go" },
     config = true,
+    dependencies = "nvim-treesitter/nvim-treesitter",
   },
 }

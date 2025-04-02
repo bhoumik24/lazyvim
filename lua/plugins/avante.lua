@@ -1,35 +1,36 @@
-local wk = require("which-key")
-wk.add({
-  { "<leader>a", group = "avante" },
-})
-
 return {
   {
     "yetone/avante.nvim",
     event = "VeryLazy",
     lazy = true,
     version = false, -- set this if you want to always pull the latest change
-    opts = function(_, opts)
+    opts = {
       -- Default configuration
-      opts.hints = { enabled = false }
+      hints = { enabled = false },
 
-      opts.auto_suggestions_provider = "gemini"
-      opts.provider = "gemini"
-      opts.openai = {
-        model = "o1-mini",
+      auto_suggestions_provider = "deepseek",
+      provider = "gemini",
+      cursor_applying_provider = "openrouter",
+      behaviour = {
+        enable_cursor_planning_mode = false,
+      },
+      openai = {
+        model = "gpt-4o",
         api_key_name = "cmd:pass show ai/openai",
         temperature = 0,
         max_tokens = 4096,
-      }
-      opts.claude = {
+      },
+      claude = {
         api_key_name = "cmd:pass show ai/anthropic",
-      }
-      opts.gemini = {
+        disable_tools = { "python" },
+      },
+      gemini = {
         api_key_name = "cmd:pass show ai/google",
-        model = "gemini-2.0-flash",
+        -- model = "gemini-2.0-flash",
+        model = "gemini-2.5-pro-exp-03-25",
         temperature = 0,
-      }
-      opts.vendors = {
+      },
+      vendors = {
         deepseek = {
           __inherited_from = "openai",
           api_key_name = "cmd:pass show ai/deepseek",
@@ -42,7 +43,8 @@ return {
           __inherited_from = "openai",
           endpoint = "https://openrouter.ai/api/v1",
           api_key_name = "cmd:pass show ai/openrouter",
-          model = "deepseek/deepseek-r1-distill-qwen-32b",
+          model = "meta-llama/llama-3.3-70b-instruct",
+          max_tokens = 32768,
         },
         ollama = {
           __inherited_from = "openai",
@@ -53,76 +55,104 @@ return {
           model = "DeepSeekR1-Local:latest",
           disable_tools = true,
         },
-      }
+      },
 
-      opts.web_search_engine = {
+      web_search_engine = {
         provider = "google",
         -- api_key_name = "cmd:pass show ai/web-search/tavily",
-      }
+      },
 
       -- File selector configuration
-      --- @alias FileSelectorProvider "native" | "fzf" | "mini.pick" | "snacks" | "telescope" | string
-      opts.file_selector = {
+      file_selector = {
+        --- @alias FileSelectorProvider "native" | "fzf" | "mini.pick" | "snacks" | "telescope" | string
         provider = "snacks",
         provider_opts = {},
-      }
-
-      -- Blink.cmp integration
-      -- LSP score_offset is typically 60
-      opts.providers = {
-        avante_commands = {
-          name = "avante_commands",
-          module = "blink.compat.source",
-          score_offset = 90, -- show at a higher priority than lsp
-          opts = {},
-        },
-        avante_files = {
-          name = "avante_files",
-          module = "blink.compat.source",
-          score_offset = 100, -- show at a higher priority than lsp
-          opts = {},
-        },
-        avante_mentions = {
-          name = "avante_mentions",
-          module = "blink.compat.source",
-          score_offset = 1000, -- show at a higher priority than lsp
-          opts = {},
-        },
-      }
-
-      opts.compat = {
-        "avante_commands",
-        "avante_mentions",
-        "avante_files",
-      }
-    end,
-    -- {
-    -- provider = "copilot",
-    -- add any opts here
-    -- provider = "claude",
-    -- vendors = {
-    --   deepseek = {
-    --     __inherited_from = "openai",
-    --     api_key_name = "cmd:pass show ai/deepseek",
-    --     endpoint = "https://api.deepseek.com",
-    --     model = "deepseek-coder",
-    --   },
-    -- },
-    -- },
-    -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
+      },
+      -- {
+      -- provider = "copilot",
+      -- add any opts here
+      -- provider = "claude",
+      -- vendors = {
+      --   deepseek = {
+      --     __inherited_from = "openai",
+      --     api_key_name = "cmd:pass show ai/deepseek",
+      --     endpoint = "https://api.deepseek.com",
+      --     model = "deepseek-coder",
+      --   },
+      -- },
+      -- },
+      -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
+    },
     build = "make",
     -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
     dependencies = {
-      "nvim-treesitter/nvim-treesitter",
-      -- {
-      --   "stevearc/dressing.nvim",
-      --   opts = {
-      --     select = {
-      --       enabled = false,
-      --       backend = { "snacks" },
-      --     },
-      --   },
-      -- },
+      {
+        "saghen/blink.cmp",
+        dependencies = {
+          "Kaiser-Yang/blink-cmp-avante",
+        },
+        opts = {
+          sources = {
+            default = {
+              "avante",
+            },
+            providers = {
+              avante = {
+                module = "blink-cmp-avante",
+                name = "Avante",
+                opts = {},
+              },
+            },
+            -- providers = {
+            --   avante_commands = {
+            --     name = "avante_commands",
+            --     module = "blink.compat.source",
+            --     score_offset = 90, -- show at a higher priority than lsp
+            --     opts = {},
+            --   },
+            --   avante_files = {
+            --     name = "avante_commands",
+            --     module = "blink.compat.source",
+            --     score_offset = 100, -- show at a higher priority than lsp
+            --     opts = {},
+            --   },
+            --   avante_mentions = {
+            --     name = "avante_mentions",
+            --     module = "blink.compat.source",
+            --     score_offset = 1000, -- show at a higher priority than lsp
+            --     opts = {},
+            --   },
+            -- },
+          },
+        },
+      },
+      {
+        "folke/which-key.nvim",
+        opts = {
+          spec = {
+            { "<leader>a", group = "ai" },
+          },
+        },
+      },
+      {
+        "nvim-treesitter/nvim-treesitter",
+        dependencies = "latex-lsp/tree-sitter-latex",
+        opts = function(_, opts)
+          -- add tsx and treesitter
+          vim.list_extend(opts.ensure_installed, {
+            "latex",
+          })
+        end,
+      },
+      {
+        "stevearc/dressing.nvim",
+        opts = {
+          select = {
+            enabled = false,
+            backend = { "snacks" },
+          },
+        },
+      },
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
       --- The below dependencies are optional,

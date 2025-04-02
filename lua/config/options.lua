@@ -11,6 +11,8 @@ vim.opt.laststatus = 3 -- for avante nvim
 vim.opt.mouse = ""
 vim.opt.sh = "zsh"
 
+vim.diagnostic.config({ virtual_lines = true })
+
 -- if vim.fn.executable("nu") == 1 then
 --   -- nu shell settings
 --   -- path to the Nushell executable

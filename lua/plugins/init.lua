@@ -37,6 +37,20 @@ return {
     },
   },
   {
+    "neovim/nvim-lspconfig",
+    opts = {
+      diagnostics = {
+        virtual_text = false,
+        virtual_line = true,
+      },
+      servers = {
+        bashls = {
+          filetypes = { "sh", "zsh" },
+        },
+      },
+    },
+  },
+  {
     "mfussenegger/nvim-dap",
     optional = true,
     dependencies = {
