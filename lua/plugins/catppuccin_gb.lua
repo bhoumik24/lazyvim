@@ -411,7 +411,7 @@ return {
       },
     },
     specs = {
-      { "HiPhish/rainbow-delimiters.nvim", enabled = true },
+      { "HiPhish/rainbow-delimiters.nvim", lazy = false, enabled = true },
       {
         "akinsho/bufferline.nvim",
         optional = true,
