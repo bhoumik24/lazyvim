@@ -11,7 +11,7 @@ vim.opt.laststatus = 3 -- for avante nvim
 vim.opt.mouse = ""
 vim.opt.sh = "zsh"
 
-vim.diagnostic.config({ virtual_lines = true })
+-- vim.diagnostic.config({ virtual_lines = true })
 
 -- if vim.fn.executable("nu") == 1 then
 --   -- nu shell settings
@@ -95,10 +95,11 @@ if vim.g.neovide then
   vim.api.nvim_set_keymap("v", "<D-v>", "<C-R>+", { noremap = true, silent = true })
 
   -- produce particles behind the cursor, to disable, set it to ""
-  vim.g.neovide_cursor_vfx_mode = "sonicboom"
+  -- vim.g.neovide_cursor_vfx_mode = "sonicboom"
 
   -- Display
-  vim.g.neovide_transparency = 0.90
+  vim.g.neovide_opacity = 0.9
+  vim.g.neovide_normal_opacity = 1.0
   vim.g.neovide_window_blurred = true
   -- vim.g.neovide_refresh_rate = 120
   vim.g.neovide_refresh_rate_idle = 5

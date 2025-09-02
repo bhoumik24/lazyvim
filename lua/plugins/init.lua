@@ -39,10 +39,10 @@ return {
   {
     "neovim/nvim-lspconfig",
     opts = {
-      diagnostics = {
-        virtual_text = false,
-        virtual_line = true,
-      },
+      -- diagnostics = {
+      --   virtual_text = false,
+      --   virtual_lines = true,
+      -- },
       servers = {
         bashls = {
           filetypes = { "sh", "zsh" },

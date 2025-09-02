@@ -2,6 +2,7 @@ return {
   {
     "yetone/avante.nvim",
     event = "VeryLazy",
+    enabled = true,
     lazy = true,
     version = false, -- set this if you want to always pull the latest change
     opts = {
@@ -9,46 +10,55 @@ return {
       hints = { enabled = false },
 
       auto_suggestions_provider = "deepseek",
-      provider = "gemini",
-      cursor_applying_provider = "openrouter",
+      provider = "openai",
+      cursor_applying_provider = "openai",
       behaviour = {
-        enable_cursor_planning_mode = false,
+        enable_cursor_planning_mode = true,
       },
-      openai = {
-        model = "gpt-4o",
-        api_key_name = "cmd:pass show ai/openai",
-        temperature = 0,
-        max_tokens = 4096,
-      },
-      claude = {
-        api_key_name = "cmd:pass show ai/anthropic",
-        disable_tools = { "python" },
-      },
-      gemini = {
-        api_key_name = "cmd:pass show ai/google",
-        -- model = "gemini-2.0-flash",
-        model = "gemini-2.5-pro-exp-03-25",
-        temperature = 0,
-      },
-      vendors = {
+      providers = {
+        openai = {
+          model = "gpt-5",
+          api_key_name = "cmd:pass show ai/openai",
+          timeout = 30000,
+          extra_request_body = {
+            temperature = 1,
+            max_completion_tokens = 8192,
+            reasoning_effort = "medium",
+          },
+        },
+        claude = {
+          api_key_name = "cmd:pass show ai/anthropic",
+          disable_tools = { "python" },
+        },
+        gemini = {
+          api_key_name = "cmd:pass show ai/google",
+          -- model = "gemini-2.0-flash",
+          model = "gemini-2.5-pro-preview-03-25",
+          extra_request_body = {
+            temperature = 0,
+          },
+        },
         deepseek = {
           __inherited_from = "openai",
           api_key_name = "cmd:pass show ai/deepseek",
           endpoint = "https://api.deepseek.com",
           model = "deepseek-coder",
-          temperature = 0,
           timeout = 30000,
+          extra_request_body = {
+            temperature = 0,
+          },
         },
         openrouter = {
           __inherited_from = "openai",
           endpoint = "https://openrouter.ai/api/v1",
           api_key_name = "cmd:pass show ai/openrouter",
           model = "meta-llama/llama-3.3-70b-instruct",
-          max_tokens = 32768,
+          extra_request_body = {
+            max_tokens = 32768,
+          },
         },
         ollama = {
           __inherited_from = "openai",
-          api_key_name = "",
           endpoint = "http://bhoumik-pc.local.bhoumik.net:11434/v1",
           -- model = "qwen2.5-coder:32b",
           -- model = "deepseek-r1:32b",
@@ -143,15 +153,6 @@ return {
             "latex",
           })
         end,
-      },
-      {
-        "stevearc/dressing.nvim",
-        opts = {
-          select = {
-            enabled = false,
-            backend = { "snacks" },
-          },
-        },
       },
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
