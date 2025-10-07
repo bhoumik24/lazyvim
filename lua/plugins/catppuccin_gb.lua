@@ -416,7 +416,7 @@ return {
         "akinsho/bufferline.nvim",
         optional = true,
         init = function()
-          local bufline = require("catppuccin.groups.integrations.bufferline")
+          local bufline = require("catppuccin.special.bufferline")
           function bufline.get()
             return bufline.get_theme()
           end

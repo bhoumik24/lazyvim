@@ -9,3 +9,4 @@ data
 lazy-lock.json
 .zed/
 lua/plugins/yanky.lua
+.DS_Store
