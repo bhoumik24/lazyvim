@@ -415,6 +415,7 @@ return {
       {
         "akinsho/bufferline.nvim",
         optional = true,
+        lazy = true,
         init = function()
           local bufline = require("catppuccin.special.bufferline")
           function bufline.get()
