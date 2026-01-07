@@ -31,7 +31,7 @@ return {
   {
     "catgoose/templ-goto-definition",
     lazy = false,
-    ft = { "go" },
+    ft = { "go", "templ" },
     config = true,
     dependencies = "nvim-treesitter/nvim-treesitter",
   },

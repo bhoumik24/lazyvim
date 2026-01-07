@@ -4,9 +4,9 @@ return {
     {
       "<leader>ac",
       function()
-        require("sidekick.cli").toggle({ name = "codex", focus = true })
+        require("sidekick.cli").toggle({ name = "opencode", focus = true })
       end,
-      desc = "Sidekick Codex toggle",
+      desc = "Sidekick OpenCode toggle",
     },
   },
 }
