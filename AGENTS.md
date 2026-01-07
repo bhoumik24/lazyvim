@@ -15,5 +15,8 @@ There is no automated test harness, so rely on headless sanity checks. Run `nvim
 ## Commit & Pull Request Guidelines
 Recent history favors short, imperative summaries (`Lazy loading plugins`, `fixed diagnostic messages`). Follow that tone, keep the first line under 72 characters, and add body details only when explaining rationale or follow-up actions. Pull requests should list impacted areas, note any required manual steps (e.g., run `Lazy sync`), and link tracking issues. Include before/after screenshots when UI-facing tweaks are made so reviewers can assess visual impact quickly.
 
+## Plugin Integration & LazyVim Overrides
+LazyVim defaults often override standard Vim/Neovim functions with enhanced UI (e.g., mapping `gd` to Telescope/Snacks instead of `vim.lsp.buf.definition()`). If a plugin relies on intercepting the standard function (like `catgoose/templ-goto-definition`), you must manually restore the standard mapping using an `LspAttach` autocommand. Use `vim.schedule()` inside the callback to ensure your override runs after LazyVim's setup.
+
 ## Security & Configuration Tips
 Do not commit personal API keys; prefer environment variables or local `*.env` files ignored by Git. Before merging, confirm `lazy-lock.json` changes are intentional and correspond to plugin updates. If you experiment with machine-specific settings, wrap them in `if vim.fn.has(...)` guards so other platforms remain unaffected.
