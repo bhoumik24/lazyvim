@@ -33,7 +33,7 @@ return {
     ft = { "go", "templ" },
     config = function()
       require("templ-goto-definition").setup()
-      
+
       -- LazyVim maps 'gd' to a picker (like Snacks or Telescope) by default.
       -- This plugin overrides vim.lsp.buf.definition(), so we need to ensure 'gd' calls that.
       vim.api.nvim_create_autocmd("LspAttach", {
