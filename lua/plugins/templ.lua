@@ -52,4 +52,12 @@ return {
     end,
     dependencies = "nvim-treesitter/nvim-treesitter",
   },
+  {
+    "stevearc/conform.nvim",
+    opts = {
+      formatters_by_ft = {
+        templ = { "templ" },
+      },
+    },
+  },
 }
