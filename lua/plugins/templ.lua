@@ -30,12 +30,10 @@ return {
   },
   {
     "catgoose/templ-goto-definition",
-    ft = { "go", "templ" },
+    event = { "BufReadPre", "BufNewFile" },
     config = function()
       require("templ-goto-definition").setup()
 
-      -- LazyVim maps 'gd' to a picker (like Snacks or Telescope) by default.
-      -- This plugin overrides vim.lsp.buf.definition(), so we need to ensure 'gd' calls that.
       vim.api.nvim_create_autocmd("LspAttach", {
         group = vim.api.nvim_create_augroup("TemplGotoDef", { clear = true }),
         callback = function(ev)
