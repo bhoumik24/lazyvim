@@ -1,5 +1,6 @@
 return {
   "stevearc/overseer.nvim",
+  cmd = { "OverseerRun", "OverseerToggle", "OverseerInfo", "OverseerBuild" },
   opts = function(_, opts)
     opts.templates = { "builtin", "user.cpp_build", "user.cpp_gcompile", "user.cpp_clean", "user.cpp_run" }
     -- opts.bindings = { ["q"] = "Close" }
