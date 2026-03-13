@@ -425,12 +425,48 @@ return {
       },
       {
         "nvim-lualine/lualine.nvim",
+        event = "VeryLazy",
         optional = true,
         opts = function(_, opts)
-          local custom_gruvbox = require("lualine.themes.catppuccin")
+          -- local custom_gruvbox = require("lualine.themes.gruvbox-material")
+          -- local C = require("catppuccin.palettes").get_palette()
+          -- custom_gruvbox.normal.a.bg = C.overlay2
+          -- custom_gruvbox.normal.b.fg = C.overlay2
+
           local C = require("catppuccin.palettes").get_palette()
-          custom_gruvbox.normal.a.bg = C.overlay2
-          custom_gruvbox.normal.b.fg = C.overlay2
+          local transparent_bg = C.base
+          local custom_gruvbox = {
+            normal = {
+              a = { bg = C.overlay2, fg = C.mantle, gui = "bold" },
+              b = { bg = C.surface0, fg = C.overlay2 },
+              c = { bg = transparent_bg, fg = C.text },
+            },
+            insert = {
+              a = { bg = C.green, fg = C.base, gui = "bold" },
+              b = { bg = C.surface0, fg = C.green },
+            },
+            terminal = {
+              a = { bg = C.green, fg = C.base, gui = "bold" },
+              b = { bg = C.surface0, fg = C.green },
+            },
+            command = {
+              a = { bg = C.peach, fg = C.base, gui = "bold" },
+              b = { bg = C.surface0, fg = C.peach },
+            },
+            visual = {
+              a = { bg = C.mauve, fg = C.base, gui = "bold" },
+              b = { bg = C.surface0, fg = C.mauve },
+            },
+            replace = {
+              a = { bg = C.red, fg = C.base, gui = "bold" },
+              b = { bg = C.surface0, fg = C.red },
+            },
+            inactive = {
+              a = { bg = transparent_bg, fg = C.blue },
+              b = { bg = transparent_bg, fg = C.surface1, gui = "bold" },
+              c = { bg = transparent_bg, fg = C.overlay0 },
+            },
+          }
           opts.options.theme = custom_gruvbox
           table.insert(opts.sections.lualine_x, { "overseer" })
         end,
