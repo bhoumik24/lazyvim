@@ -2,10 +2,8 @@ vim.filetype.add({ extension = { templ = "templ" } })
 return {
   {
     "nvim-treesitter/nvim-treesitter",
-    dependencies = {
-      "vrischmann/tree-sitter-templ",
-    },
-    opts = { ensure_installed = { "templ" } },
+    ft = "templ",
+    dependencies = "vrischmann/tree-sitter-templ",
   },
   {
     "neovim/nvim-lspconfig",

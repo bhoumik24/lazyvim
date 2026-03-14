@@ -147,12 +147,6 @@ return {
       {
         "nvim-treesitter/nvim-treesitter",
         dependencies = "latex-lsp/tree-sitter-latex",
-        opts = function(_, opts)
-          -- add tsx and treesitter
-          vim.list_extend(opts.ensure_installed, {
-            "latex",
-          })
-        end,
       },
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
