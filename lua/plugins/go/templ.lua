@@ -31,23 +31,17 @@ return {
       local star = opts.servers["*"] or {}
       star.keys = star.keys or {}
 
-      local filtered = {}
-      for _, key in ipairs(star.keys) do
-        if key[1] ~= "gd" then
-          table.insert(filtered, key)
-        end
-      end
-
-      table.insert(filtered, {
-        "gd",
-        function()
-          return vim.lsp.buf.definition()
-        end,
-        desc = "Goto Definition",
-        has = "definition",
+      vim.list_extend(star.keys, {
+        { "gd", false },
+        {
+          "gd",
+          function()
+            return vim.lsp.buf.definition()
+          end,
+          desc = "Goto Definition",
+          has = "definition",
+        },
       })
-
-      star.keys = filtered
 
       opts.servers["*"] = star
     end,
