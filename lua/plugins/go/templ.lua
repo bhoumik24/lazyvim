@@ -62,4 +62,15 @@ return {
       },
     },
   },
+  {
+    "nvim-mini/mini.icons",
+    opts = {
+      extension = {
+        templ = { glyph = "", hl = "MiniIconsYellow" },
+      },
+      filetype = {
+        templ = { glyph = "", hl = "MiniIconsYellow" },
+      },
+    },
+  },
 }
