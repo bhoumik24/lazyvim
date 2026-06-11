@@ -153,3 +153,5 @@ vim.opt.guicursor = {
   "i-ci-ve:ver25-lCursor", -- Use 'lCursor' highlight for insert and visual-exclusive modes
   "r-cr:hor20-CursorIM", -- Use 'CursorIM' for replace mode
 }
+
+vim.g.ai_cmp = true
