@@ -9,6 +9,17 @@ return {
       animate = {
         fps = 120,
       },
+      scroll = {
+        animate = {
+          duration = { step = 10, total = 200 },
+          easing = "outQuad",
+        },
+        animate_repeat = {
+          delay = 100,
+          duration = { step = 6, total = 120 },
+          easing = "outQuad",
+        },
+      },
       explorer = {
         replace_netrw = true,
       },
