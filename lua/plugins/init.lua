@@ -11,12 +11,12 @@ return {
       },
       scroll = {
         animate = {
-          duration = { step = 10, total = 200 },
+          duration = { step = 5, total = 100 },
           easing = "outQuad",
         },
         animate_repeat = {
           delay = 100,
-          duration = { step = 6, total = 120 },
+          duration = { step = 3, total = 50 },
           easing = "outQuad",
         },
       },
