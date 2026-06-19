@@ -109,8 +109,8 @@ if vim.g.neovide then
 
   -- Font weight and clarity tuning (introduced in Neovide 0.13.0)
   -- Adjust these if text looks too thick, thin, or fuzzy.
-  -- vim.g.neovide_text_gamma = 0.8
-  -- vim.g.neovide_text_contrast = 0.2
+  vim.g.neovide_text_gamma = 0.8
+  vim.g.neovide_text_contrast = 0.1
 
   -- This is how fast the cursor animation "moves", default 0.06
   vim.g.neovide_cursor_animation_length = 0.04
