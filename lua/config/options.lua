@@ -52,7 +52,7 @@ vim.opt.sh = "zsh"
 --   -- end nushell settings
 -- end
 
-vim.lsp.set_log_level("off")
+vim.lsp.log.set_level(vim.log.levels.ERROR)
 
 vim.g.lazyvim_python_lsp = "pyright"
 vim.g.lazyvim_python_ruff = "ruff"
