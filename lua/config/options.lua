@@ -81,6 +81,29 @@ vim.filetype.add({ extension = { template = "yaml" } })
 -- ############################################################################
 
 if vim.g.neovide then
+  local cwd = vim.fn.getcwd()
+  local argc = vim.fn.argc()
+  -- Check if a terminal program environment variable exists. We ignore generic fallback values
+  -- like "xterm-256color" or "su" for TERM because macOS GUI launches can set TERM via default profiles.
+  local term = vim.env.TERM
+  local generic_terms = {
+    ["xterm-256color"] = true,
+    ["xterm"] = true,
+    ["screen"] = true,
+    ["screen-256color"] = true,
+    ["dumb"] = true,
+    ["vt100"] = true,
+    ["su"] = true, -- macOS Spotlight/launchd can default to "su"
+  }
+  local from_terminal = vim.env.TERM_PROGRAM ~= nil or (term ~= nil and not generic_terms[term])
+
+
+
+  -- Trigger ONLY if no arguments, in root/home, AND NOT from a terminal
+  if argc == 0 and (cwd == "/" or cwd == vim.fn.expand("~")) and not from_terminal then
+    vim.api.nvim_set_current_dir(vim.fn.expand("~/Developer/"))
+  end
+
   vim.keymap.set("n", "<D-s>", ":w<CR>") -- Save
   vim.keymap.set("v", "<D-c>", '"+y') -- Copy
   vim.keymap.set("n", "<D-v>", '"+P') -- Paste normal mode
