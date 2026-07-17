@@ -58,6 +58,13 @@ return {
         bashls = {
           filetypes = { "sh", "zsh" },
         },
+        gopls = {
+          settings = {
+            gopls = {
+              staticcheck = false,
+            },
+          },
+        },
       },
     },
   },
