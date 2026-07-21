@@ -10,6 +10,8 @@
 vim.opt.laststatus = 3 -- for avante nvim
 vim.opt.mouse = ""
 vim.opt.sh = "zsh"
+vim.opt.exrc = true -- Enable project-local .nvim.lua / .vimrc files
+
 
 -- vim.diagnostic.config({ virtual_lines = true })
 
