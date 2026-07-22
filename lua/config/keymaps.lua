@@ -7,6 +7,7 @@ vim.keymap.set("i", "<C-c>", "<Esc>", { noremap = true, silent = true, desc = "E
 -- Toggle background transparency (Neovide opacity & terminal Catppuccin transparency)
 local default_neovide_opacity = vim.g.neovide_opacity or 0.9
 local default_neovide_normal_opacity = vim.g.neovide_normal_opacity or 1.0
+local is_terminal_transparent = vim.g.neovide ~= true
 
 vim.keymap.set("n", "<leader>uo", function()
   if vim.g.neovide then
@@ -35,7 +36,7 @@ vim.keymap.set("n", "<leader>uo", function()
       if cat.options.transparent_background then
         vim.notify("Catppuccin transparency enabled", vim.log.levels.INFO, { title = "Theme" })
       else
-        vim.notify("Catppuccin transparency disabled", vim.log.levels.INFO, { title = "Theme" })
+        vim.notify("Catppuccin transparency disabled (opaque)", vim.log.levels.INFO, { title = "Theme" })
       end
     else
       vim.notify("Catppuccin theme not loaded", vim.log.levels.ERROR)

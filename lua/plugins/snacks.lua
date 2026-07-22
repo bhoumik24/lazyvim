@@ -2,6 +2,13 @@ return {
   {
     "folke/snacks.nvim",
     opts = {
+      styles = {
+        terminal = {
+          wo = {
+            winhighlight = "Normal:SnacksTerminalNormal,NormalNC:SnacksTerminalNormal,FloatBorder:SnacksTerminalBorder",
+          },
+        },
+      },
       picker = {
         sources = {
           keymaps = {
