@@ -33,6 +33,7 @@ return {
           row = 0,
           col = 0.5,
           resize = true,
+          zindex = 100,
         },
       },
       lazygit = {
